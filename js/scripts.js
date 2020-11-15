@@ -17,7 +17,11 @@ function clearStorage() {
 //получаем данные только если начался диалог
 
 socket.onmessage = function(event) {
-  console.log(`[message] Данные получены с сервера: ${event.data}`);
+  let message = event.data;
+
+  let messageElem = document.createElement('div');
+  messageElem.textContent = message;
+  document.getElementById('messages').prepend(messageElem);
 };
 
 socket.onclose = function(event) {
