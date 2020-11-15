@@ -9,7 +9,7 @@ function clearStorage() {
 }
 
 //websocket connection for logs
-let socket = new WebSocket("ws://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
+let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
 
 socket.onopen = function(e) {
   alert("[open] Соединение установлено");
