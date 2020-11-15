@@ -15,7 +15,7 @@ function clearStorage() {
 }
 
 //получаем данные только если начался диалог
-function onMessageSent() {
+
 socket.onmessage = function(event) {
   console.log(`[message] Данные получены с сервера: ${event.data}`);
 };
@@ -32,5 +32,4 @@ socket.onclose = function(event) {
 
 socket.onerror = function(error) {
   console.log(`[error] ${error.message}`);
-};
 };
