@@ -21,7 +21,7 @@ socket.onmessage = function(event) {
 
   let messageElem = document.createElement('div');
   messageElem.textContent = message;
-  document.getElementById('messages').prepend(messageElem);
+  document.getElementById('messages').append(messageElem);
 };
 
 socket.onclose = function(event) {
