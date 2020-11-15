@@ -30,11 +30,12 @@ body {
  border-radius: 14px;
  border: 1px solid black;
  background-color: white;
- width: 600px;
+ width: auto;
  padding: 20px
 }
 
 #messages div {
  border-bottom: 1px solid black;
- margin-top: 10px;
+ padding-bottom: 5px;
+ margin-top: 15px;
 }
