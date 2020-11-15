@@ -15,12 +15,6 @@ function clearStorage() {
 
 //websocket connection for logs
 //function onMessageSent() {
-let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
-
-socket.onopen = function(e) {
-  console.log('Соединение установлено, начинаю логирование');
-};
-
 socket.onmessage = function(event) {
   alert(`[message] Данные получены с сервера: ${event.data}`);
 };
