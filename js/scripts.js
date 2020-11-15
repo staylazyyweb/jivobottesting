@@ -1,11 +1,12 @@
+//ws connection for logs
+let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
+    socket.onopen = function(e) {
+   console.log('Соединение установлено, начинаю логирование');
+};
+
 function jivo_onLoadCallback() {
     console.log('Widget fully loaded');
     jivo_api.showProactiveInvitation("How can I help you?");
-    let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
-    socket.onopen = function(e) {
-  console.log('Соединение установлено, начинаю логирование');
-};
-    return socket;
 }
 
 function clearStorage() {
@@ -13,8 +14,8 @@ function clearStorage() {
     window.location.reload();
 }
 
-//websocket connection for logs
-//function onMessageSent() {
+//получаем данные только если начался диалог
+function onMessageSent() {
 socket.onmessage = function(event) {
   console.log('[message] Данные получены с сервера: ${event.data}');
 };
@@ -32,4 +33,4 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   console.log('[error] ${error.message}');
 };
-//};
+};
