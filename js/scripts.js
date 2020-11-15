@@ -1,6 +1,11 @@
 function jivo_onLoadCallback() {
     console.log('Widget fully loaded');
-    jivo_api.showProactiveInvitation("How can I help you?"); 
+    jivo_api.showProactiveInvitation("How can I help you?");
+    let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
+    socket.onopen = function(e) {
+  console.log('Соединение установлено, начинаю логирование');
+};
+    return socket;
 }
 
 function clearStorage() {
@@ -9,12 +14,11 @@ function clearStorage() {
 }
 
 //websocket connection for logs
+//function onMessageSent() {
 let socket = new WebSocket("wss://testbotjivo.eu-gb.cf.appdomain.cloud/ws/dataexchange");
 
 socket.onopen = function(e) {
-  alert("[open] Соединение установлено");
-  alert("Отправляем данные на сервер");
-  socket.send("Меня зовут Джон");
+  console.log('Соединение установлено, начинаю логирование');
 };
 
 socket.onmessage = function(event) {
@@ -34,3 +38,4 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   alert(`[error] ${error.message}`);
 };
+//};
