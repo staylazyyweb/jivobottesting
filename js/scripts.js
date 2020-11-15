@@ -16,20 +16,20 @@ function clearStorage() {
 //websocket connection for logs
 //function onMessageSent() {
 socket.onmessage = function(event) {
-  alert(`[message] Данные получены с сервера: ${event.data}`);
+  console.log('[message] Данные получены с сервера: ${event.data}');
 };
 
 socket.onclose = function(event) {
   if (event.wasClean) {
-    alert(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+    console.log('[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}');
   } else {
     // например, сервер убил процесс или сеть недоступна
     // обычно в этом случае event.code 1006
-    alert('[close] Соединение прервано');
+    console.log('[close] Соединение прервано');
   }
 };
 
 socket.onerror = function(error) {
-  alert(`[error] ${error.message}`);
+  console.log('[error] ${error.message}');
 };
 //};
